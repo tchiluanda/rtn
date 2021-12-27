@@ -9,3 +9,10 @@ Description: More about what it does (maybe more than one line)
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
+Depends: 
+    R (>= 2.10),
+    ckanr,
+    tidyverse,
+    lubridate,
+    tidyr
+RoxygenNote: 7.1.1
