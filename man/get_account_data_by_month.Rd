@@ -2,10 +2,10 @@
 % Please edit documentation in R/get_account_data_by_month.R
 \name{get_account_data_by_month}
 \alias{get_account_data_by_month}
-\title{Get RTN revenue data by year}
+\title{Get data accumulated for 12 months for specifics accounts in specified months}
 \usage{
 get_account_data_by_month(
-  account = "8. RESULTADO PRIMÁRIO DO GOVERNO CENTRAL - ABAIXO DA LINHA (5 + 6 + 7)",
+  account = "5. RESULTADO PRIMÁRIO GOVERNO CENTRAL - ACIMA DA LINHA (3 - 4)",
   month = 12
 )
 }
@@ -18,8 +18,8 @@ get_account_data_by_month(
 tibble with account data.
 }
 \description{
-Get RTN revenue data by year
+Get data accumulated for 12 months for specifics accounts in specified months
 }
 \examples{
-get_account_data_by_month(account= "8. RESULTADO PRIMÃRIO DO GOVERNO CENTRAL - ABAIXO DA LINHA (5 + 6 + 7)", month = 12)
+get_account_data_by_month(account= "5. RESULTADO PRIMÃRIO GOVERNO CENTRAL - ACIMA DA LINHA (3 - 4)", month = 12)
 }
