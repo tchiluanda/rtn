@@ -12,7 +12,7 @@ You can install the development version from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("tchiluanda/siconfiBD")
+devtools::install_github("tchiluanda/rtn")
 ```
 
 ## Example
