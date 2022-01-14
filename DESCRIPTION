@@ -13,5 +13,6 @@ Depends:
     ckanr,
     tidyverse,
     lubridate,
-    tidyr
+    tidyr,
+    magrittr
 RoxygenNote: 7.1.1
