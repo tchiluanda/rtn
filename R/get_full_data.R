@@ -67,7 +67,7 @@ get_full_data <- function(){
   names(rtn_geral)[1]<-"Rubrica"
 
 
-  series_temporais_analise<-gather(rtn_geral,Data, Valor,c(-Rubrica, -id))
+  series_temporais_analise<-tidyr::gather(rtn_geral,Data, Valor,c(-Rubrica, -id))
   series_temporais_analise$Data<-as.Date(as.numeric(series_temporais_analise$Data), origin="1899-12-30")
   series_temporais_analise$Valor <-round(as.numeric(series_temporais_analise$Valor),0)
   series_temporais_analise$Valor[is.na(series_temporais_analise$Valor)]<-0
