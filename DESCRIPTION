@@ -13,6 +13,7 @@ Depends:
     ckanr,
     tidyverse,
     lubridate,
-    tidyr,
+    tidyr
+Imports:    
     magrittr
 RoxygenNote: 7.1.1
