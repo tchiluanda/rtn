@@ -13,7 +13,8 @@ Depends:
     ckanr,
     tidyverse,
     lubridate,
-    tidyr
+    tidyr,
+    zoo
 Imports:    
     magrittr
 RoxygenNote: 7.1.1
