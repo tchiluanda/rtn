@@ -4,14 +4,10 @@
 \alias{get_account_data_by_month}
 \title{Get data for specifics accounts in specified months}
 \usage{
-get_account_data_by_month(
-  account = "5. RESULTADO PRIMÁRIO GOVERNO CENTRAL - ACIMA DA LINHA (3 - 4)",
-  month = 12,
-  match_required = TRUE
-)
+get_account_data_by_month(.data = NULL, month = 12, match_required = TRUE)
 }
 \arguments{
-\item{account}{vector indicating the account, Null for all accounts}
+\item{.data}{vector indicating the account, Null for all accounts}
 
 \item{month}{vector indicating the months of reference.}
 
@@ -24,5 +20,5 @@ tibble with account data.
 Get data for specifics accounts in specified months
 }
 \examples{
-get_account_data_by_month(account= "5. RESULTADO PRIMÃRIO GOVERNO CENTRAL - ACIMA DA LINHA (3 - 4)", month = 12)
+get_account_data_by_month(.data= "5. RESULTADO PRIMÃRIO GOVERNO CENTRAL - ACIMA DA LINHA (3 - 4)", month = 12)
 }

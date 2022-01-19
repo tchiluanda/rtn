@@ -5,12 +5,12 @@
 \title{Get account data accumulated in a year for specifics accounts in specified months}
 \usage{
 get_year_accumulated_account_data(
-  account = "5. RESULTADO PRIMÁRIO GOVERNO CENTRAL - ACIMA DA LINHA (3 - 4)",
+  .data = "5. RESULTADO PRIMÁRIO GOVERNO CENTRAL - ACIMA DA LINHA (3 - 4)",
   match_required = TRUE
 )
 }
 \arguments{
-\item{account}{vector indicating the account, Null for all accounts}
+\item{.data}{vector indicating the account, Null for all accounts}
 
 \item{match_required}{logic indicates if the account names must match}
 }
@@ -21,5 +21,5 @@ tibble with account data.
 Get account data accumulated in a year for specifics accounts in specified months
 }
 \examples{
-get_year_accumulated_account_data(account= "5. RESULTADO PRIMÃRIO GOVERNO CENTRAL - ACIMA DA LINHA (3 - 4)")
+get_year_accumulated_account_data(.data= "5. RESULTADO PRIMÃRIO GOVERNO CENTRAL - ACIMA DA LINHA (3 - 4)")
 }

@@ -6,13 +6,13 @@
 \title{Get account data accumulated for 12 months for specifics accounts in specified months}
 \usage{
 get_12_month_accumulated_account_data_by_month(
-  account = "5. RESULTADO PRIMÁRIO GOVERNO CENTRAL - ACIMA DA LINHA (3 - 4)",
+  .data = NULL,
   month = NULL,
   match_required = TRUE
 )
 }
 \arguments{
-\item{account}{vector indicating the account, Null for all accounts}
+\item{.data}{vector indicating the account, Null for all accounts}
 
 \item{month}{vector indicating the months of reference. Null for all months}
 
@@ -25,5 +25,5 @@ tibble with account data.
 Get account data accumulated for 12 months for specifics accounts in specified months
 }
 \examples{
-get_12_month_accumulated_account_data_by_month(account= "5. RESULTADO PRIMÃRIO GOVERNO CENTRAL - ACIMA DA LINHA (3 - 4)", month = NULL)
+get_12_month_accumulated_account_data_by_month(.data= "5. RESULTADO PRIMÃRIO GOVERNO CENTRAL - ACIMA DA LINHA (3 - 4)", month = NULL)
 }
