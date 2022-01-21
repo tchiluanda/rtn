@@ -7,33 +7,31 @@
 #' get_12_month_accumulated_account_data_by_month(.data= "5. RESULTADO PRIMÁRIO GOVERNO CENTRAL - ACIMA DA LINHA (3 - 4)", month = NULL)
 #' @export
 
-get_12_month_accumulated_account_data_by_month <- function(.data= NULL, month = NULL){
+get_12_month_accumulated_account_data_by_month <- function(.data = NULL, month = NULL, match_required = TRUE){
 
   df_trabalho<- get_full_data()
 
-  # if (!is.null(.data) & match_required){
-  #
-  #   df_trabalho <-
-  #     df_trabalho %>%
-  #     dplyr::filter(stringr::str_to_lower(Rubrica) %in% stringr::str_to_lower(.data))
-  # }
-  #
-  # if (!is.null(.data) & !match_required){
-  #
-  #   account_filter<- stringr::str_to_lower(str_c(.data,  collapse = "|"))
-  #
-  #   df_trabalho <-
-  #     df_trabalho %>%
-  #     dplyr::filter(stringr::str_detect(stringr::str_to_lower(Rubrica), pattern = account_filter))
-  # }
-
-  account_filter<- stringr::str_to_lower(str_c(.data,  collapse = "|"))
-
-  df_trabalho <-
-    df_trabalho %>%
-    dplyr::filter(stringr::str_detect(stringr::str_to_lower(Rubrica), pattern = account_filter))
 
 
+  if (!is.null(.data) & match_required){
+
+    contas<- .data
+
+    df_trabalho <-
+      df_trabalho %>%
+      dplyr::filter(stringr::str_to_lower(Rubrica) %in% stringr::str_to_lower(contas))
+  }
+
+  if (!is.null(.data) & !match_required){
+
+    contas<- str_trim(str_replace(.data,"[(](?<=[(]).*", ""))
+
+    account_filter<- stringr::str_to_lower(str_c(contas,  collapse = "|"))
+
+    df_trabalho <-
+      df_trabalho %>%
+      dplyr::filter(stringr::str_detect(stringr::str_to_lower(Rubrica), pattern = account_filter))
+  }
 
 
   datas_rubricas<-
@@ -47,8 +45,8 @@ get_12_month_accumulated_account_data_by_month <- function(.data= NULL, month = 
   df_trabalho %>%
     dplyr::group_by(id) %>%
     dplyr::summarise(
-      valor_historico_acum= zoo::rollsum(valor_historico,12,align = "right"),
-      valor_atualizado_acum=zoo::rollsum(valor_atualizado,12,align = "right")
+      valor_historico= zoo::rollsum(valor_historico,12,align = "right"),
+      valor_atualizado=zoo::rollsum(valor_atualizado,12,align = "right")
     ) %>%
     dplyr::ungroup() %>%
     dplyr::select(-id)

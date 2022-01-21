@@ -6,36 +6,37 @@
 #' get_year_accumulated_account_data(.data= "5. RESULTADO PRIMÁRIO GOVERNO CENTRAL - ACIMA DA LINHA (3 - 4)")
 #' @export
 
-get_year_accumulated_account_data <- function(.data= "5. RESULTADO PRIMÁRIO GOVERNO CENTRAL - ACIMA DA LINHA (3 - 4)", match_required= TRUE){
+get_year_accumulated_account_data <- function(.data= NULL, match_required= TRUE){
 
   df_trabalho<- get_full_data()
 
   if (!is.null(.data) & match_required){
 
+    contas<- .data
+
     df_trabalho <-
       df_trabalho %>%
-      dplyr::filter(Rubrica %in% .data)
+      dplyr::filter(stringr::str_to_lower(Rubrica) %in% stringr::str_to_lower(contas))
   }
 
   if (!is.null(.data) & !match_required){
 
-    account_filter<- str_to_lower(str_c(.data,  collapse = "|"))
+    contas<- str_trim(str_replace(.data,"[(](?<=[(]).*", ""))
+
+    account_filter<- stringr::str_to_lower(str_c(contas,  collapse = "|"))
 
     df_trabalho <-
       df_trabalho %>%
-      dplyr::filter(str_detect(str_to_lower(Rubrica), pattern = account_filter))
+      dplyr::filter(stringr::str_detect(stringr::str_to_lower(Rubrica), pattern = account_filter))
   }
-
-
-
 
   df_trabalho<-
     df_trabalho %>%
-    mutate(ano = lubridate::year(Data)) %>%
-    group_by( ano, id, Rubrica) %>%
+    mutate(Data = lubridate::year(Data)) %>%
+    group_by( Data, id, Rubrica) %>%
     summarise(
-      valor_historico_anual=sum(valor_historico),
-      valor_atualizado_anual = sum(valor_atualizado)
+      valor_historico=sum(valor_historico),
+      valor_atualizado = sum(valor_atualizado)
     ) %>%
     ungroup()
 

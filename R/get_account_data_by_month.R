@@ -19,19 +19,22 @@ get_account_data_by_month <- function(.data=NULL, month = 12,  match_required= T
 
   if (!is.null(.data) & match_required){
 
+    contas<- .data
+
     df_trabalho <-
       df_trabalho %>%
-      dplyr::filter(stringr::str_to_lower(Rubrica) %in% stringr::str_to_lower(.data))
+      dplyr::filter(stringr::str_to_lower(Rubrica) %in% stringr::str_to_lower(contas))
   }
 
   if (!is.null(.data) & !match_required){
 
+    contas<- str_trim(str_replace(.data,"[(](?<=[(]).*", ""))
 
-    account_filter<- str_to_lower(str_c(.data,  collapse = "|"))
+    account_filter<- stringr::str_to_lower(str_c(contas,  collapse = "|"))
 
     df_trabalho <-
       df_trabalho %>%
-      dplyr::filter(str_detect(str_to_lower(Rubrica), pattern = account_filter))
+      dplyr::filter(stringr::str_detect(stringr::str_to_lower(Rubrica), pattern = account_filter))
   }
 
 
