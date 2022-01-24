@@ -16,7 +16,8 @@ Depends:
     tidyr,
     zoo,
     forecast,
-    readxl
+    readxl,
+    dplyr
 Imports: 
     magrittr
 RoxygenNote: 7.1.1

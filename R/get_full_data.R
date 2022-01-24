@@ -90,8 +90,8 @@ get_full_data <- function(){
           dplyr::mutate(deflator =  Valor) %>%
           dplyr::select(Data, deflator), by = "Data") %>%
       dplyr::mutate(valor_atualizado = deflator * valor_historico ) %>%
-    arrange(Data, id, Rubrica) %>%
-    mutate(Rubrica= stringr::str_trim(stringr::str_remove_all(Rubrica, pattern = "[0-9]+/")))%>%
+    dplyr::arrange(Data, id, Rubrica) %>%
+    dplyr::mutate(Rubrica= stringr::str_trim(stringr::str_remove_all(Rubrica, pattern = "[0-9]+/")))%>%
     dplyr::select(Data,Rubrica, id, tipo,valor_historico, valor_atualizado )
 
 
