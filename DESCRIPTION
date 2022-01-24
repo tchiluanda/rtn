@@ -15,7 +15,8 @@ Depends:
     lubridate,
     tidyr,
     zoo,
-    forecast
+    forecast,
+    readxl
 Imports: 
     magrittr
 RoxygenNote: 7.1.1
