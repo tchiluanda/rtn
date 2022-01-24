@@ -28,7 +28,7 @@ get_account_data_by_month <- function(.data=NULL, month = 12,  match_required= T
 
   if (!is.null(.data) & !match_required){
 
-    contas<- str_trim(str_replace(.data,"[(](?<=[(]).*", ""))
+    contas<- stringr::str_trim(stringr::str_replace(.data,"[(](?<=[(]).*", ""))
 
     account_filter<- stringr::str_to_lower(str_c(contas,  collapse = "|"))
 

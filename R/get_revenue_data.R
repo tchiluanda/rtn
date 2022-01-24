@@ -11,13 +11,13 @@ get_revenue_data <- function(year= NULL){
 
   df_trabalho <-
     df_trabalho %>%
-    filter(tipo == "R")
+    dplyr::filter(tipo == "R")
 
   if (!is.null(year)){
 
     df_trabalho<-
       df_trabalho %>%
-      filter(lubridate::year(Data) %in% year)
+      dplyr::filter(lubridate::year(Data) %in% year)
 
   }
 

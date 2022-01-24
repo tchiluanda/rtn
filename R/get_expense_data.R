@@ -11,13 +11,13 @@ get_expense_data <- function(year= NULL){
 
   df_trabalho <-
   df_trabalho %>%
-    filter(tipo == "D")
+    dplyr::filter(tipo == "D")
 
   if (!is.null(year)){
 
     df_trabalho<-
     df_trabalho %>%
-      filter(lubridate::year(Data) %in% year)
+      dplyr::filter(lubridate::year(Data) %in% year)
 
   }
 

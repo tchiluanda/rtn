@@ -21,9 +21,9 @@ get_year_accumulated_account_data <- function(.data= NULL, match_required= TRUE)
 
   if (!is.null(.data) & !match_required){
 
-    contas<- str_trim(str_replace(.data,"[(](?<=[(]).*", ""))
+    contas<- stringr::str_trim(stringr::str_replace(.data,"[(](?<=[(]).*", ""))
 
-    account_filter<- stringr::str_to_lower(str_c(contas,  collapse = "|"))
+    account_filter<- stringr::str_to_lower(stringr::str_c(contas,  collapse = "|"))
 
     df_trabalho <-
       df_trabalho %>%
@@ -32,13 +32,13 @@ get_year_accumulated_account_data <- function(.data= NULL, match_required= TRUE)
 
   df_trabalho<-
     df_trabalho %>%
-    mutate(Data = lubridate::year(Data)) %>%
-    group_by( Data, id, Rubrica) %>%
-    summarise(
+    dplyr::mutate(Data = lubridate::year(Data)) %>%
+    dplyr::group_by( Data, id, Rubrica) %>%
+    dplyr::summarise(
       valor_historico=sum(valor_historico),
       valor_atualizado = sum(valor_atualizado)
     ) %>%
-    ungroup()
+    dplyr::ungroup()
 
 
   df_trabalho

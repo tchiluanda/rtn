@@ -12,14 +12,14 @@ get_full_account_name <- function(account= NULL){
 
   if (!is.null(account)){
 
-    account_filter<- str_to_lower(str_c(account,  collapse = "|"))
+    account_filter<- stringr::str_to_lower(stringr::str_c(account,  collapse = "|"))
 
     df_trabalho <-
       df_trabalho %>%
-      dplyr::filter(str_detect(str_to_lower(Rubrica), pattern = account_filter))
+      dplyr::filter(stringr::str_detect(stringr::str_to_lower(Rubrica), pattern = account_filter))
   }
 
   (df_trabalho %>%
-    distinct(Rubrica))$Rubrica
+    dplyr::distinct(Rubrica))$Rubrica
 
 }

@@ -92,7 +92,7 @@ get_full_data <- function(){
       dplyr::mutate(valor_atualizado = deflator * valor_historico ) %>%
     arrange(Data, id, Rubrica) %>%
     mutate(Rubrica= stringr::str_trim(stringr::str_remove_all(Rubrica, pattern = "[0-9]+/")))%>%
-    select(Data,Rubrica, id, tipo,valor_historico, valor_atualizado )
+    dplyr::select(Data,Rubrica, id, tipo,valor_historico, valor_atualizado )
 
 
 

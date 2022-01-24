@@ -18,18 +18,18 @@ plot_rtn_series<- function(.data, value_type="1", clean_names = TRUE){
 
     .data<-
       .data%>%
-      mutate(Rubrica =  stringr::str_trim( stringr::str_remove_all(Rubrica,"[:punct:]|[0-9]")))
+      dplyr::mutate(Rubrica =  stringr::str_trim( stringr::str_remove_all(Rubrica,"[:punct:]|[0-9]")))
 
   }
 
   .data%>%
-  ggplot() +
-    geom_line(aes(x=Data, y=!!sym(column), color = stringr::str_wrap(Rubrica,20)), size=0.8)+
-    theme_light()+
-    theme(
-      panel.grid = element_blank()
+  ggplot2::ggplot() +
+    ggplot2::geom_line(aes(x=Data, y=!!sym(column), color = stringr::str_wrap(Rubrica,20)), size=0.8)+
+    ggplot2::theme_light()+
+    ggplot2::theme(
+      panel.grid = ggplot2::element_blank()
     )+
-    labs(color = "Rubrica",
+    ggplot2::labs(color = "Rubrica",
          y= texto_eixo_y)
 
 }

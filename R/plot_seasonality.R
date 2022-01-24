@@ -19,13 +19,13 @@ plot_seasonality<- function(.data, value_type="1", clean_names = TRUE, polar = T
 
     .data<-
       .data%>%
-      mutate(Rubrica =  stringr::str_trim( stringr::str_remove_all(Rubrica,"[:punct:]|[0-9]")))
+      dplyr::mutate(Rubrica =  stringr::str_trim( stringr::str_remove_all(Rubrica,"[:punct:]|[0-9]")))
 
   }
 
   values<-
     .data %>%
-    select(!!sym(column))
+    dplyr::select(!!sym(column))
 
   conta<- unique(.data$Rubrica)
 
@@ -34,13 +34,13 @@ plot_seasonality<- function(.data, value_type="1", clean_names = TRUE, polar = T
   }
 
   forecast::ggseasonplot(x= ts(data = values,frequency = 12, start = c(1997,1)),  polar = polar)+
-    ylab("R$ milhões") +
-    ggtitle(paste0("Seasonality graph - ",conta)) +
-    scale_color_viridis(discrete = TRUE)+
-    theme_light() +
-    theme(
-      panel.background = element_rect(fill= "black") ,
-      axis.text.x =  element_text(color = "white")
+    ggplot2::ylab("R$ milhões") +
+    ggplot2::ggtitle(paste0("Seasonality graph - ",conta)) +
+    viridis::scale_color_viridis(discrete = TRUE)+
+    ggplot2::theme_light() +
+    ggplot2::theme(
+      panel.background = ggplot2::element_rect(fill= "black") ,
+      axis.text.x =  ggplot2::element_text(color = "white")
     )
 
 }
