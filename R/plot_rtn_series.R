@@ -1,14 +1,15 @@
-#' Generate a line graph for a given accounts data
+#' Generate a line graph for given accounts data
 #'
 #' @param .data tibble with 12 month accumulated values
 #' @param value_type character 1- For updated value
+#' @param clean_names logical cleans the legend name
 #' @return line graph.
 #' @examples
-#' graph_rtn_series(c("3. RECEITA LÍQUIDA","despesa total","acima da linha"), month = c(1:12), match_required = FALSE) %>% graph_rtn_series()
+#' get_year_accumulated_account_data(c("3. RECEITA LÍQUIDA","despesa total","acima da linha"), match_required = FALSE) %>% plot_rtn_series()
 #' @export
 
 
-graph_rtn_series<- function(.data, value_type="1", clean_names = TRUE){
+plot_rtn_series<- function(.data, value_type="1", clean_names = TRUE){
 
   column<- ifelse(value_type==1, "valor_atualizado", "valor_historico")
   texto_eixo_y<- ifelse(value_type==1, "valor atualizado", "valor histórico")

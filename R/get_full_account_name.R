@@ -1,4 +1,4 @@
-#' Get account data accumulated in a year for specifics accounts in specified months
+#' Get the full account name related to a given part of an account name
 #' @param account vector indicating part of the account name, Null for all accounts
 #' @return tibble with account data.
 #' @examples

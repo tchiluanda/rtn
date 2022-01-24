@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_full_account_name.R
 \name{get_full_account_name}
 \alias{get_full_account_name}
-\title{Get account data accumulated in a year for specifics accounts in specified months}
+\title{Get the full account name related to a given part of an account name}
 \usage{
 get_full_account_name(account = NULL)
 }
@@ -13,7 +13,7 @@ get_full_account_name(account = NULL)
 tibble with account data.
 }
 \description{
-Get account data accumulated in a year for specifics accounts in specified months
+Get the full account name related to a given part of an account name
 }
 \examples{
 get_full_account_name(account= "resultado")

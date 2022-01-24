@@ -4,7 +4,7 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of rtn is to ...
+The goal of rtn is to retrieve data related to the reports about the Brazilian Central Government primary results
 
 ## Installation
 
@@ -20,22 +20,8 @@ devtools::install_github("tchiluanda/rtn")
 See how you can draw a polar graph of time-series related to a given account:
 
 ``` r
-library(rtn)
-library(forecast)
-library(viridis)
-
-account<- "1.1.3.1  I.R. - Pessoa Física"
-account_values<- get_account_data_by_month(account = account, month = c(1:12))
-
-ggseasonplot(x= ts(data = account_values$valor_atualizado,frequency = 12, start = c(1997,1)),  polar = TRUE)+
-  ylab("R$ milhões") +
-  ggtitle(paste0("Seasonality graph - ",account)) + 
-  scale_color_viridis(discrete = TRUE)+
-  theme_light() +
-  theme(
-    panel.background = element_rect(fill= "black") ,
-    axis.text.x =  element_text(color = "white")
-  )
+get_account_data_by_month(c("física"), month = c(1:12), match_required = FALSE) %>%
+  plot_seasonality (value_type = "1")
 
 
 ```
