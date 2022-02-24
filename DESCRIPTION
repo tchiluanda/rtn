@@ -10,16 +10,14 @@ Encoding: UTF-8
 LazyData: true
 Depends: 
     R (>= 2.10),
+    magrittr,
     ckanr,
     tidyverse,
     lubridate,
-    tidyr,
     zoo,
     forecast,
-    readxl,
-    dplyr
 Imports: 
-    magrittr
+    readxl
 RoxygenNote: 7.1.1
 Suggests: 
     testthat (>= 3.0.0)

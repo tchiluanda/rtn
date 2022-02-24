@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot_seasonality.R
 \name{plot_seasonality}
 \alias{plot_seasonality}
-\title{Generate a line graph for a given accounts data}
+\title{Generates a seasonality graphic for a given account data}
 \usage{
 plot_seasonality(.data, value_type = "1", clean_names = TRUE, polar = TRUE)
 }
@@ -10,13 +10,15 @@ plot_seasonality(.data, value_type = "1", clean_names = TRUE, polar = TRUE)
 \item{.data}{tibble with 12 month accumulated values}
 
 \item{value_type}{character 1- For updated value}
+
+\item{clean_names}{logical uses polar coordinates}
 }
 \value{
 line graph.
 }
 \description{
-Generate a line graph for a given accounts data
+Generates a seasonality graphic for a given account data
 }
 \examples{
-graph_rtn_series(c("3. RECEITA LÃQUIDA","despesa total","acima da linha"), month = c(1:12), match_required = FALSE) \%>\% graph_rtn_series()
+get_account_data_by_month(c("fÃ­sica"), month = c(1:12), match_required = FALSE) \%>\% plot_seasonality()
 }

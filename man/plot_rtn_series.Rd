@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot_rtn_series.R
 \name{plot_rtn_series}
 \alias{plot_rtn_series}
-\title{Generate a line graph for a given accounts data}
+\title{Generate a line graph for given accounts data}
 \usage{
 plot_rtn_series(.data, value_type = "1", clean_names = TRUE)
 }
@@ -10,12 +10,14 @@ plot_rtn_series(.data, value_type = "1", clean_names = TRUE)
 \item{.data}{tibble with 12 month accumulated values}
 
 \item{value_type}{character 1- For updated value}
+
+\item{clean_names}{logical cleans the legend name}
 }
 \value{
 line graph.
 }
 \description{
-Generate a line graph for a given accounts data
+Generate a line graph for given accounts data
 }
 \examples{
 get_year_accumulated_account_data(c("3. RECEITA LÃQUIDA","despesa total","acima da linha"), match_required = FALSE) \%>\% plot_rtn_series()

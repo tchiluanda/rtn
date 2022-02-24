@@ -43,7 +43,7 @@ get_full_data <- function(){
   rtn_receita$id <- 1:NROW(rtn_receita)
   series_temporais_analise_rec<-tidyr::gather(rtn_receita,Data, Valor,c(-Rubrica, -id))
   series_temporais_analise_rec$Data<-as.Date(as.numeric(series_temporais_analise_rec$Data), origin="1899-12-30")
-  series_temporais_analise_rec$Valor <-round(as.numeric(series_temporais_analise_rec$Valor),0)
+  series_temporais_analise_rec$Valor <-as.numeric(series_temporais_analise_rec$Valor)
   series_temporais_analise_rec$Valor[is.na(series_temporais_analise_rec$Valor)]<-0
   series_temporais_analise_rec$tipo <- "R"
 
@@ -54,7 +54,7 @@ get_full_data <- function(){
   rtn_despesa$id <- proximo_id:ultimo_id
   series_temporais_analise_desp<-tidyr::gather(rtn_despesa,Data, Valor,c(-Rubrica, -id))
   series_temporais_analise_desp$Data<-as.Date(as.numeric(series_temporais_analise_desp$Data), origin="1899-12-30")
-  series_temporais_analise_desp$Valor <-round(as.numeric(series_temporais_analise_desp$Valor),0)
+  series_temporais_analise_desp$Valor <-as.numeric(series_temporais_analise_desp$Valor)
   series_temporais_analise_desp$Valor[is.na(series_temporais_analise_desp$Valor)]<-0
   series_temporais_analise_desp$tipo <- "D"
 
@@ -69,7 +69,7 @@ get_full_data <- function(){
 
   series_temporais_analise<-tidyr::gather(rtn_geral,Data, Valor,c(-Rubrica, -id))
   series_temporais_analise$Data<-as.Date(as.numeric(series_temporais_analise$Data), origin="1899-12-30")
-  series_temporais_analise$Valor <-round(as.numeric(series_temporais_analise$Valor),0)
+  series_temporais_analise$Valor <-as.numeric(series_temporais_analise$Valor)
   series_temporais_analise$Valor[is.na(series_temporais_analise$Valor)]<-0
 
   names(deflator_IPCA)[1]<-"Rubrica"

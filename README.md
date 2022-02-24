@@ -26,3 +26,7 @@ get_account_data_by_month(c("física"), month = c(1:12), match_required = FALSE)
 
 ```
 
+## One important note
+
+All the values are in R$ millions
+

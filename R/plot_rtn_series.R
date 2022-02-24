@@ -18,7 +18,7 @@ plot_rtn_series<- function(.data, value_type="1", clean_names = TRUE){
 
     .data<-
       .data%>%
-      dplyr::mutate(Rubrica =  stringr::str_trim( stringr::str_remove_all(Rubrica,"[:punct:]|[0-9]")))
+      dplyr::mutate(Rubrica =  stringr::str_trim( stringr::str_remove_all(Rubrica,"[:punct:]|[0-9]|[:symbol:]")))
 
   }
 

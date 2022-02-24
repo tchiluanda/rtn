@@ -6,7 +6,7 @@
 #' @param clean_names logical uses polar coordinates
 #' @return line graph.
 #' @examples
-#' graph_rtn_series(c("3. RECEITA LÍQUIDA","despesa total","acima da linha"), month = c(1:12), match_required = FALSE) %>% graph_rtn_series()
+#' get_account_data_by_month(c("física"), month = c(1:12), match_required = FALSE) %>% plot_seasonality()
 #' @export
 
 
@@ -19,7 +19,7 @@ plot_seasonality<- function(.data, value_type="1", clean_names = TRUE, polar = T
 
     .data<-
       .data%>%
-      dplyr::mutate(Rubrica =  stringr::str_trim( stringr::str_remove_all(Rubrica,"[:punct:]|[0-9]")))
+      dplyr::mutate(Rubrica =  stringr::str_trim( stringr::str_remove_all(Rubrica,"[:punct:]|[0-9]|[:symbol:]")))
 
   }
 
