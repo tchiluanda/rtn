@@ -36,7 +36,7 @@ get_full_data <- function(){
 
 
 
-  deflator_IPCA <- readxl::read_xlsx(tmp,sheet = 3,skip = 74,n_max = 1, col_names = FALSE)
+  deflator_IPCA <- readxl::read_xlsx(tmp,sheet = 3,skip = 75,n_max = 1, col_names = FALSE)
   names(deflator_IPCA)<-names(rtn_receita)
   names(rtn_despesa) <-names(rtn_receita)
 
